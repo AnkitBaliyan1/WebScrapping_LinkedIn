@@ -31,7 +31,8 @@ if __name__=='__main__':
     url = st.text_area("Enter the url here..")
 
     if st.button("Get Records") and url:
-        scrap_df = utils.scrap_data(url)
+        with st.spinner("Scrapping the given URL"):
+            scrap_df = utils.scrap_data(url)
         st.dataframe(scrap_df)
         dataframe_to_csv_download(scrap_df)
         
